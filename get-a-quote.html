@@ -9,6 +9,71 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    /* Product checkbox grid */
+    .product-checkboxes {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .cb-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      background: var(--s3);
+      border: 1px solid var(--border-mid);
+      cursor: pointer;
+      font-size: 0.875rem;
+      color: var(--gray-30);
+      transition: all 0.2s ease;
+      border-radius: 2px;
+      user-select: none;
+    }
+    .cb-label:hover {
+      border-color: var(--green);
+      color: var(--white);
+      background: var(--s4);
+    }
+    /* hide native checkbox */
+    .cb-input { display: none; }
+    /* custom checkbox box */
+    .cb-box {
+      width: 18px;
+      height: 18px;
+      border: 2px solid var(--border-light);
+      background: var(--s2);
+      flex-shrink: 0;
+      border-radius: 2px;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    /* checked state */
+    .cb-input:checked + .cb-box {
+      background: var(--green);
+      border-color: var(--green);
+    }
+    .cb-input:checked + .cb-box::after {
+      content: "";
+      position: absolute;
+      left: 4px; top: 1px;
+      width: 6px; height: 10px;
+      border: 2px solid #fff;
+      border-top: none;
+      border-left: none;
+      transform: rotate(45deg);
+    }
+    /* whole label highlight when checked */
+    .cb-label:has(.cb-input:checked) {
+      border-color: var(--green);
+      color: var(--white);
+      background: rgba(45,178,40,0.08);
+    }
+    @media (max-width: 600px) {
+      .product-checkboxes { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
 </head>
 <body>
 
@@ -98,31 +163,13 @@
           <!-- Products Needed -->
           <div class="form-group">
             <label>Products Needed *</label>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:4px">
-              <label style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:0.875rem;color:var(--gray-30);letter-spacing:0;text-transform:none;margin-bottom:0">
-                <input type="checkbox" name="products" value="turf" style="width:16px;height:16px;background:var(--gray-80);border:1px solid var(--gray-70);accent-color:#fff" />
-                Custom Gym Turf
-              </label>
-              <label style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:0.875rem;color:var(--gray-30);letter-spacing:0;text-transform:none;margin-bottom:0">
-                <input type="checkbox" name="products" value="flooring" style="width:16px;height:16px;accent-color:#fff" />
-                Rubber Flooring
-              </label>
-              <label style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:0.875rem;color:var(--gray-30);letter-spacing:0;text-transform:none;margin-bottom:0">
-                <input type="checkbox" name="products" value="equipment" style="width:16px;height:16px;accent-color:#fff" />
-                Functional Equipment
-              </label>
-              <label style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:0.875rem;color:var(--gray-30);letter-spacing:0;text-transform:none;margin-bottom:0">
-                <input type="checkbox" name="products" value="large_equipment" style="width:16px;height:16px;accent-color:#fff" />
-                Larger Equipment
-              </label>
-              <label style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:0.875rem;color:var(--gray-30);letter-spacing:0;text-transform:none;margin-bottom:0">
-                <input type="checkbox" name="products" value="golf_mats" style="width:16px;height:16px;accent-color:#fff" />
-                Golf / Baseball Mats
-              </label>
-              <label style="display:flex;align-items:center;gap:8px;font-family:var(--font-body);font-size:0.875rem;color:var(--gray-30);letter-spacing:0;text-transform:none;margin-bottom:0">
-                <input type="checkbox" name="products" value="not_sure" style="width:16px;height:16px;accent-color:#fff" />
-                Not Sure Yet
-              </label>
+            <div class="product-checkboxes">
+              <label class="cb-label"><input type="checkbox" name="products" value="turf" class="cb-input"><span class="cb-box"></span>Custom Gym Turf</label>
+              <label class="cb-label"><input type="checkbox" name="products" value="flooring" class="cb-input"><span class="cb-box"></span>Rubber Flooring</label>
+              <label class="cb-label"><input type="checkbox" name="products" value="equipment" class="cb-input"><span class="cb-box"></span>Functional Equipment</label>
+              <label class="cb-label"><input type="checkbox" name="products" value="large_equipment" class="cb-input"><span class="cb-box"></span>Larger Equipment</label>
+              <label class="cb-label"><input type="checkbox" name="products" value="golf_mats" class="cb-input"><span class="cb-box"></span>Golf / Baseball Mats</label>
+              <label class="cb-label"><input type="checkbox" name="products" value="not_sure" class="cb-input"><span class="cb-box"></span>Not Sure Yet</label>
             </div>
           </div>
 
