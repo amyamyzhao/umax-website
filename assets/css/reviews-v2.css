@@ -1,0 +1,241 @@
+/* ============================================================
+   UMAX Reviews v2 — matches the design mockup
+   Black bg · Orange stars · 2×3 card grid
+   ============================================================ */
+
+.reviews-v2 {
+  background: #0a0a0a;
+  padding: 72px 0 64px;
+}
+.rv2-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.rv2-eyebrow {
+  font-family: var(--font-head);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--green);
+  text-align: center;
+  margin-bottom: 12px;
+}
+.rv2-title {
+  font-family: var(--font-head);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  color: var(--white);
+  text-align: center;
+  margin-bottom: 40px;
+  line-height: 1.05;
+}
+
+/* Grid: 2 rows × 3 cols, first card spans 2 rows */
+.rv2-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 16px;
+}
+.rv2-card {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.rv2-card--large {
+  grid-row: 1 / 3;    /* spans both rows */
+}
+
+/* Card image */
+.rv2-card-img {
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.rv2-card--large .rv2-card-img { height: 260px; }
+.rv2-card:not(.rv2-card--large):not(.rv2-card--wa) .rv2-card-img { height: 180px; }
+.rv2-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.rv2-card:hover .rv2-card-img img { transform: scale(1.04); }
+
+/* Card body */
+.rv2-card-body {
+  padding: 18px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Stars — orange */
+.rv2-stars {
+  color: #f5a623;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+}
+
+/* Badges */
+.rv2-badges {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.rv2-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: #2a2a2a;
+  color: #ccc;
+  border: 1px solid #3a3a3a;
+}
+.rv2-badge--platinum {
+  background: #1e2a3a;
+  color: #7bb8ff;
+  border-color: #2a4a7a;
+}
+
+/* Quotes */
+.rv2-quote {
+  font-size: 0.875rem;
+  color: #ddd;
+  line-height: 1.65;
+  flex: 1;
+}
+.rv2-quote-sm {
+  font-size: 0.85rem;
+  color: #ddd;
+  line-height: 1.6;
+}
+
+/* Buyer identity */
+.rv2-buyer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+.rv2-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.rv2-buyer strong {
+  display: block;
+  font-size: 0.82rem;
+  color: #fff;
+}
+.rv2-buyer span {
+  font-size: 0.72rem;
+  color: #777;
+}
+.rv2-reply {
+  font-size: 0.72rem;
+  color: #666;
+  line-height: 1.5;
+  border-top: 1px solid #2a2a2a;
+  padding-top: 8px;
+  margin-top: auto;
+}
+
+/* WhatsApp card */
+.rv2-card--wa {
+  background: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.rv2-wa-header {
+  background: #128c7e;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.rv2-wa-back { font-size: 1rem; color: #fff; margin-right: auto; }
+.rv2-wa-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: #aaa;
+}
+.rv2-wa-icons { margin-left: auto; letter-spacing: 8px; }
+.rv2-wa-img {
+  position: relative;
+  height: 160px;
+  overflow: hidden;
+}
+.rv2-wa-img img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.rv2-wa-time {
+  position: absolute;
+  bottom: 6px; right: 8px;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.8);
+  background: rgba(0,0,0,0.4);
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.rv2-wa-messages {
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.rv2-wa-msg {
+  background: #fff;
+  border-radius: 8px 8px 0 8px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  color: #111;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 12px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  align-self: flex-end;
+  max-width: 85%;
+}
+.rv2-wa-msg span {
+  font-size: 0.62rem;
+  color: #aaa;
+  flex-shrink: 0;
+}
+
+/* Footer */
+.rv2-footnote {
+  text-align: center;
+  font-size: 0.78rem;
+  color: #555;
+  margin-top: 32px;
+  margin-bottom: 24px;
+}
+.rv2-cta-wrap {
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .rv2-grid { grid-template-columns: 1fr 1fr; }
+  .rv2-card--large { grid-row: auto; }
+}
+@media (max-width: 560px) {
+  .rv2-grid { grid-template-columns: 1fr; }
+}
