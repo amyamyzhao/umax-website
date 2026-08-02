@@ -53,7 +53,14 @@
 
       <!-- RFQ Form -->
       <div>
-        <form id="rfq-form">
+        <form id="rfq-form" action="https://api.web3forms.com/submit" method="POST">
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="6f75b4b4-fd1e-48f3-85a3-635b2703c5d3">
+          <input type="hidden" name="subject" value="New RFQ from UMAX Sports Website">
+          <input type="hidden" name="from_name" value="UMAX Sports Website">
+          <input type="hidden" name="redirect" value="https://umaxsporting.com/get-a-quote.html?success=1">
+          <!-- Honeypot spam protection -->
+          <input type="checkbox" name="botcheck" style="display:none">
 
           <!-- Buyer Type -->
           <div class="form-group">

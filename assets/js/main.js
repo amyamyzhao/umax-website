@@ -46,29 +46,23 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // ---- RFQ Form submission ----
+  // ---- RFQ Form submission (Web3Forms) ----
   const rfqForm = document.getElementById('rfq-form');
   if (rfqForm) {
-    rfqForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    // Show success if redirected back with ?success=1
+    if (window.location.search.includes('success=1')) {
+      rfqForm.innerHTML = `
+        <div style="text-align:center;padding:64px 0">
+          <div style="font-family:var(--font-head);font-size:3rem;font-weight:900;margin-bottom:16px;color:#2DB228">✓</div>
+          <h3 style="margin-bottom:12px">Request Received!</h3>
+          <p>Thank you! Our team will review your project details and respond within 24 hours.</p>
+          <p style="margin-top:8px;color:var(--gray-50)">Need faster response? WhatsApp us at <strong style="color:var(--white)">+86 183 5833 8643</strong></p>
+        </div>`;
+    }
+    // Show sending state on submit (form posts naturally to Web3Forms)
+    rfqForm.addEventListener('submit', () => {
       const btn = rfqForm.querySelector('[type="submit"]');
-      btn.textContent = 'Sending...';
-      btn.disabled = true;
-
-      // Collect form data
-      const data = Object.fromEntries(new FormData(rfqForm));
-      console.log('RFQ submitted:', data);
-
-      // Simulate async (replace with real endpoint / Formspree / EmailJS)
-      setTimeout(() => {
-        rfqForm.innerHTML = `
-          <div style="text-align:center;padding:64px 0">
-            <div style="font-family:var(--font-head);font-size:3rem;font-weight:900;margin-bottom:16px">✓</div>
-            <h3 style="margin-bottom:12px">Request Received</h3>
-            <p>Thank you! Our team will review your project details and respond within 24 hours.</p>
-            <p style="margin-top:8px;color:var(--gray-50)">Need faster response? WhatsApp us at <strong style="color:var(--white)">+86 183 5833 8643</strong></p>
-          </div>`;
-      }, 1200);
+      if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
     });
   }
 
