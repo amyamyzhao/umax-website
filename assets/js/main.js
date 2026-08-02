@@ -46,23 +46,45 @@ document.addEventListener('DOMContentLoaded', () => {
     observer.observe(el);
   });
 
-  // ---- RFQ Form submission (Web3Forms) ----
+  // ---- RFQ Form submission (Web3Forms AJAX) ----
   const rfqForm = document.getElementById('rfq-form');
   if (rfqForm) {
-    // Show success if redirected back with ?success=1
-    if (window.location.search.includes('success=1')) {
-      rfqForm.innerHTML = `
-        <div style="text-align:center;padding:64px 0">
-          <div style="font-family:var(--font-head);font-size:3rem;font-weight:900;margin-bottom:16px;color:#2DB228">✓</div>
-          <h3 style="margin-bottom:12px">Request Received!</h3>
-          <p>Thank you! Our team will review your project details and respond within 24 hours.</p>
-          <p style="margin-top:8px;color:var(--gray-50)">Need faster response? WhatsApp us at <strong style="color:var(--white)">+86 183 5833 8643</strong></p>
-        </div>`;
-    }
-    // Show sending state on submit (form posts naturally to Web3Forms)
-    rfqForm.addEventListener('submit', () => {
+    rfqForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
       const btn = rfqForm.querySelector('[type="submit"]');
-      if (btn) { btn.textContent = 'Sending...'; btn.disabled = true; }
+      const originalText = btn.textContent;
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+
+      const formData = new FormData(rfqForm);
+
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          body: formData
+        });
+        const data = await res.json();
+
+        if (data.success) {
+          rfqForm.innerHTML = `
+            <div style="text-align:center;padding:64px 0">
+              <div style="font-size:3rem;margin-bottom:16px;color:#2DB228">✓</div>
+              <h3 style="margin-bottom:12px;font-family:var(--font-head);text-transform:uppercase">Request Received!</h3>
+              <p style="margin-bottom:8px">Thank you! Our team will respond within 24 hours.</p>
+              <p style="color:var(--gray-50)">Need faster response? WhatsApp us at <strong style="color:var(--white)">+86 183 5833 8643</strong></p>
+            </div>`;
+        } else {
+          btn.textContent = originalText;
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or contact us on WhatsApp.');
+          console.error('Web3Forms error:', data);
+        }
+      } catch (err) {
+        btn.textContent = originalText;
+        btn.disabled = false;
+        alert('Network error. Please try again or contact us directly.');
+        console.error(err);
+      }
     });
   }
 
