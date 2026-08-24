@@ -1,0 +1,13 @@
+# Deployment metadata and local development files are not public website assets.
+.git
+.git/**
+.github
+.github/**
+.gitignore
+.assetsignore
+wrangler.jsonc
+package.json
+package-lock.json
+pnpm-lock.yaml
+node_modules
+node_modules/**
