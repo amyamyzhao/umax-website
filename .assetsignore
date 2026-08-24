@@ -6,6 +6,8 @@
 .gitignore
 .assetsignore
 wrangler.jsonc
+.wrangler
+.wrangler/**
 package.json
 package-lock.json
 pnpm-lock.yaml
