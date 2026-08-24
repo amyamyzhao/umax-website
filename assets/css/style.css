@@ -1,3 +1,32 @@
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/barlow-condensed-400-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../fonts/barlow-condensed-700-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Barlow Condensed';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('../fonts/barlow-condensed-900-latin.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('../fonts/inter-400-500-latin.woff2') format('woff2');
+}
+
 /* ============================================================
    UMAX Sports — Global Design System
    Steel-Gray × Brand Green × Lime Accent Athletic Style
@@ -256,12 +285,13 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 900px) {
   .nav-links { display: none; }
+  .nav-cta { display: none; }
   .nav-hamburger { display: flex; }
   .nav-links.open {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 64px;
+    top: 84px;
     left: 0;
     right: 0;
     background: var(--gray-90);
@@ -269,6 +299,15 @@ a { color: inherit; text-decoration: none; }
     gap: 20px;
     border-bottom: 1px solid var(--gray-70);
   }
+  .responsive-split {
+    grid-template-columns: 1fr !important;
+    gap: 36px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .announce-bar span { display: none; margin: 0; }
+  .announce-bar span:first-child { display: inline; }
 }
 
 /* ---------- Hero ---------- */
@@ -286,8 +325,21 @@ a { color: inherit; text-decoration: none; }
       rgba(10,10,10,0.70) 35%,
       rgba(10,10,10,0.10) 100%
     ),
-    url('https://sc02.alicdn.com/kf/A920d9d36f618435e95d5026a82a5ffc1C.jpg')
+    url('../img/home/hero-training-zone-768.webp')
     center right / cover no-repeat;
+}
+@media (min-width: 769px) {
+  .hero {
+    background:
+      linear-gradient(
+        to right,
+        rgba(10,10,10,0.88) 0%,
+        rgba(10,10,10,0.70) 35%,
+        rgba(10,10,10,0.10) 100%
+      ),
+      url('../img/home/hero-training-zone-1600.webp')
+      center right / cover no-repeat;
+  }
 }
 .hero-bg {
   position: absolute;
@@ -1061,6 +1113,16 @@ a { color: inherit; text-decoration: none; }
 .fade-up-delay-2 { animation-delay: 0.2s; }
 .fade-up-delay-3 { animation-delay: 0.3s; }
 
+/* Keep the original desktop entrance effect. On phones the same content is
+   painted immediately so the hero heading is not delayed behind animation. */
+@media (max-width: 768px) {
+  .hero .fade-up {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
 /* ---------- Product Image Placeholder ---------- */
 .img-placeholder {
   width: 100%;
@@ -1588,4 +1650,3 @@ a { color: inherit; text-decoration: none; }
     transition-duration: 0.001ms !important;
   }
 }
-

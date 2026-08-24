@@ -4,75 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get a Gym Equipment & Shipping Quote | UMAX Sports</title>
-  <meta name="description" content="Send your project details and our team will prepare a tailored equipment recommendation and shipping quotation within 24 hours." />
-  <link rel="canonical" href="https://umaxsports.com/get-a-quote.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Inter:wght@400;500&display=swap" rel="stylesheet" />
+  <meta name="description" content="Send your project details for a tailored gym equipment, turf, flooring and shipping quotation. Working-hour replies usually arrive within 5 minutes." />
+  <link rel="canonical" href="https://www.umaxsporting.com/get-a-quote" />
+  <link rel="preload" href="/assets/fonts/barlow-condensed-900-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/assets/fonts/inter-400-500-latin.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/css/style.css" />
   <style>
-    /* Product checkbox grid */
-    .product-checkboxes {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 6px;
-    }
-    .cb-label {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 14px;
-      background: var(--s3);
-      border: 1px solid var(--border-mid);
-      cursor: pointer;
-      font-size: 0.875rem;
-      color: var(--gray-30);
-      transition: all 0.2s ease;
-      border-radius: 2px;
-      user-select: none;
-    }
-    .cb-label:hover {
-      border-color: var(--green);
-      color: var(--white);
-      background: var(--s4);
-    }
-    /* hide native checkbox */
-    .cb-input { display: none; }
-    /* custom checkbox box */
-    .cb-box {
-      width: 18px;
-      height: 18px;
-      border: 2px solid var(--border-light);
-      background: var(--s2);
-      flex-shrink: 0;
-      border-radius: 2px;
-      transition: all 0.2s ease;
-      position: relative;
-    }
-    /* checked state */
-    .cb-input:checked + .cb-box {
-      background: var(--green);
-      border-color: var(--green);
-    }
-    .cb-input:checked + .cb-box::after {
-      content: "";
-      position: absolute;
-      left: 4px; top: 1px;
-      width: 6px; height: 10px;
-      border: 2px solid #fff;
-      border-top: none;
-      border-left: none;
-      transform: rotate(45deg);
-    }
-    /* whole label highlight when checked */
-    .cb-label:has(.cb-input:checked) {
-      border-color: var(--green);
-      color: var(--white);
-      background: rgba(45,178,40,0.08);
-    }
-    @media (max-width: 600px) {
-      .product-checkboxes { grid-template-columns: 1fr 1fr; }
-    }
+    .quote-layout { display:grid;grid-template-columns:minmax(0,2fr) minmax(280px,1fr);gap:64px;align-items:start; }
+    .quote-panel { border:1px solid var(--gray-70);background:var(--s2);padding:clamp(24px,4vw,42px);scroll-margin-top:108px; }
+    .form-progress { display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:38px; }
+    .form-progress__item { border-top:4px solid var(--gray-70);padding-top:12px;color:var(--gray-50);font-family:var(--font-head);font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase; }
+    .form-progress__item.is-active { border-color:var(--green);color:var(--white); }
+    .form-step[hidden] { display:none; }
+    .form-step__head { margin-bottom:28px; }
+    .form-step__head h2 { font-size:clamp(1.7rem,3.5vw,2.5rem);margin-bottom:8px; }
+    .form-step__head p { font-size:.9rem;color:var(--gray-30); }
+    .product-checkboxes { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:6px; }
+    .cb-label { display:flex;align-items:center;gap:10px;min-height:52px;padding:12px 14px;background:var(--s3);border:1px solid var(--border-mid);cursor:pointer;font-size:.83rem;color:var(--gray-30);transition:.2s ease;user-select:none; }
+    .cb-label:hover,.cb-label:has(.cb-input:checked) { border-color:var(--green);color:var(--white);background:rgba(45,178,40,.08); }
+    .cb-input { position:absolute;opacity:0;pointer-events:none;width:1px !important;height:1px !important;margin:0; }
+    .cb-box { width:18px;height:18px;border:2px solid var(--border-light);background:var(--s2);flex-shrink:0;position:relative; }
+    .cb-input:focus-visible + .cb-box { outline:3px solid var(--lime);outline-offset:3px; }
+    .cb-input:checked + .cb-box { background:var(--green);border-color:var(--green); }
+    .cb-input:checked + .cb-box::after { position:absolute;left:4px;top:1px;width:6px;height:10px;border:2px solid #fff;border-top:0;border-left:0;content:"";transform:rotate(45deg); }
+    .form-actions { display:flex;gap:12px;justify-content:flex-end;margin-top:8px; }
+    .form-actions .btn { justify-content:center;min-width:150px; }
+    .form-help { margin:-12px 0 24px;color:var(--gray-50);font-size:.76rem; }
+    .field-error { display:none;margin-top:8px;color:#ff9c9c;font-size:.78rem; }
+    .field-error.is-visible { display:block; }
+    .quote-sidebar { position:sticky;top:108px; }
+    .side-card { border:1px solid var(--gray-70);padding:30px;margin-bottom:24px; }
+    .side-step { display:flex;gap:14px;margin-top:20px; }
+    .side-step__num { min-width:30px;color:var(--lime);font-family:var(--font-head);font-size:1.5rem;font-weight:900; }
+    .side-step h3 { margin-bottom:5px;font-size:.88rem;letter-spacing:.04em; }
+    .side-step p { font-size:.78rem;line-height:1.6; }
+    .trust-pills { display:flex;flex-wrap:wrap;gap:8px;margin-top:24px; }
+    .trust-pills span { border:1px solid var(--gray-70);padding:7px 10px;color:var(--gray-30);font-family:var(--font-head);font-size:.7rem;letter-spacing:.07em;text-transform:uppercase; }
+    @media (max-width:900px){ .quote-layout{grid-template-columns:1fr;gap:34px}.quote-sidebar{position:static}.product-checkboxes{grid-template-columns:repeat(2,minmax(0,1fr))} }
+    @media (max-width:520px){ .product-checkboxes{grid-template-columns:1fr}.form-actions{flex-direction:column-reverse}.form-actions .btn{width:100%} }
   </style>
 </head>
 <body>
@@ -85,253 +54,234 @@
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="/" class="nav-logo">UMAX <span>Sports</span></a>
+    <a href="/" class="nav-logo"><img src="assets/img/home/umax-logo-144.webp" alt="UMAX Sports Logo" width="144" height="144" style="height:72px;width:auto;display:block;" /></a>
     <ul class="nav-links">
       <li><a href="/solutions/">Solutions</a></li>
       <li><a href="/products/">Products</a></li>
-      <li><a href="/custom-branding.html">Custom Branding</a></li>
-      <li><a href="/ready-to-ship.html">Ready to Ship</a></li>
-      <li><a href="/factory-quality.html">Factory & Quality</a></li>
-      <li><a href="/about.html">About</a></li>
+      <li><a href="/#custom-branding">Custom Branding</a></li>
+      <li><a href="/#factory-quality">Factory & Quality</a></li>
+      <li><a href="/blog/">Blog</a></li>
     </ul>
-            <a href="/get-a-quote.html" class="btn btn-primary nav-cta" style="">Get a Quote</a>
-    <button class="nav-hamburger" aria-label="Open menu"><span></span><span></span><span></span></button>
+    <a href="/get-a-quote" class="btn btn-primary nav-cta">Get a Quote</a>
+    <button class="nav-hamburger" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
-<!-- Page Header -->
-<section style="background:var(--gray-90);padding:80px 0 64px;border-bottom:1px solid var(--gray-80)">
+<header style="background:var(--gray-90);padding:72px 0 58px;border-bottom:1px solid var(--gray-80)">
   <div class="container">
-    <div class="label" style="margin-bottom:20px">Inquiry</div>
-    <h1 style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:16px">Get a Product &<br>Shipping Plan</h1>
-    <p style="max-width:520px;color:var(--gray-30)">
-      Share a few project details and our team will prepare a tailored recommendation and quotation.
-      We respond within 24 hours — often faster.
-    </p>
+    <div class="label" style="margin-bottom:18px">Fast Project Inquiry</div>
+    <h1 id="rfq-title" style="font-size:clamp(2.2rem,5vw,3.8rem);margin-bottom:16px">Get a Product &<br>Shipping Plan</h1>
+    <p id="rfq-subtitle" style="max-width:650px;color:var(--gray-30)">Tell us what you need in two short steps. We usually send the first working-hour reply within 5 minutes.</p>
+    <div class="trust-pills" aria-label="Service commitments">
+      <span>1-Unit Orders</span><span>1-Hour Initial Mockup</span><span>1–3 Day Samples</span><span>Worldwide DDP</span>
+    </div>
   </div>
-</section>
+</header>
 
-<!-- Form + Sidebar -->
-<section class="section section--dark">
+<main class="section section--dark">
   <div class="container">
-    <div style="display:grid;grid-template-columns:2fr 1fr;gap:64px;align-items:start">
+    <div class="quote-layout">
+      <div class="quote-panel">
+        <div class="form-progress" aria-label="Inquiry progress">
+          <div class="form-progress__item is-active" data-progress-step="1">01 · Essentials</div>
+          <div class="form-progress__item" data-progress-step="2">02 · Project Details</div>
+        </div>
 
-      <!-- RFQ Form -->
-      <div>
-        <form id="rfq-form" action="https://api.web3forms.com/submit" method="POST">
-          <!-- Web3Forms Access Key -->
+        <form id="rfq-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
           <input type="hidden" name="access_key" value="6f75b4b4-fd1e-48f3-85a3-635b2703c5d3">
           <input type="hidden" name="subject" value="New RFQ from UMAX Sports Website">
           <input type="hidden" name="from_name" value="UMAX Sports Website">
-          <!-- no redirect: handled by JS -->
           <input type="hidden" name="redirect" value="false">
-          <!-- Honeypot spam protection -->
           <input type="checkbox" name="botcheck" style="display:none">
+          <input type="hidden" name="source_page" value="">
+          <input type="hidden" name="inquiry_context" value="">
+          <input type="hidden" name="utm_source" value="">
+          <input type="hidden" name="utm_medium" value="">
+          <input type="hidden" name="utm_campaign" value="">
+          <input type="hidden" name="utm_term" value="">
+          <input type="hidden" name="utm_content" value="">
 
-          <!-- Buyer Type -->
-          <div class="form-group">
-            <label>I am a *</label>
-            <select name="buyer_type" required>
-              <option value="" disabled selected>Select your buyer type</option>
-              <option value="commercial_gym">Commercial Gym</option>
-              <option value="studio">Boutique / Fitness Studio</option>
-              <option value="distributor">Distributor / Importer</option>
-              <option value="private_label">Private Label Brand</option>
-              <option value="project_buyer">Sports Facility Project Buyer</option>
-              <option value="home_other">Home / Other</option>
-            </select>
-          </div>
+          <section class="form-step" data-form-step="1">
+            <div class="form-step__head">
+              <h2>Start With the Essentials</h2>
+              <p>Enough information to route your inquiry to the right product conversation.</p>
+            </div>
 
-          <!-- Country + Project Type -->
-          <div class="form-row">
-            <div class="form-group">
-              <label>Country / Destination Port *</label>
-              <input type="text" name="country" placeholder="e.g. United States, Germany" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="buyer_type">I am a *</label>
+                <select id="buyer_type" name="buyer_type" required>
+                  <option value="">Select buyer type</option>
+                  <option value="commercial_gym">Commercial Gym</option>
+                  <option value="boutique_studio">Boutique / Fitness Studio</option>
+                  <option value="distributor_importer">Distributor / Importer</option>
+                  <option value="private_label">Private Label Brand</option>
+                  <option value="sports_facility">Sports Facility Project Buyer</option>
+                  <option value="home_other">Home / Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="country">Country / Destination *</label>
+                <input id="country" type="text" name="country" placeholder="e.g. United States, Germany" required />
+              </div>
             </div>
-            <div class="form-group">
-              <label>Project Type *</label>
-              <select name="project_type" required>
-                <option value="" disabled selected>Select project type</option>
-                <option value="new_facility">New Facility Build</option>
-                <option value="upgrade">Upgrade / Renovation</option>
-                <option value="trial_order">Trial / Sample Order</option>
-                <option value="resale">Resale / Private Label</option>
-              </select>
-            </div>
-          </div>
 
-          <!-- Products Needed -->
-          <div class="form-group">
-            <label>Products Needed *</label>
-            <div class="product-checkboxes">
-              <label class="cb-label"><input type="checkbox" name="products" value="turf" class="cb-input"><span class="cb-box"></span>Custom Gym Turf</label>
-              <label class="cb-label"><input type="checkbox" name="products" value="flooring" class="cb-input"><span class="cb-box"></span>Rubber Flooring</label>
-              <label class="cb-label"><input type="checkbox" name="products" value="equipment" class="cb-input"><span class="cb-box"></span>Functional Equipment</label>
-              <label class="cb-label"><input type="checkbox" name="products" value="large_equipment" class="cb-input"><span class="cb-box"></span>Larger Equipment</label>
-              <label class="cb-label"><input type="checkbox" name="products" value="golf_mats" class="cb-input"><span class="cb-box"></span>Golf / Baseball Mats</label>
-              <label class="cb-label"><input type="checkbox" name="products" value="not_sure" class="cb-input"><span class="cb-box"></span>Not Sure Yet</label>
+            <div class="form-group">
+              <label>Products Needed *</label>
+              <div class="product-checkboxes" data-product-group>
+                <label class="cb-label"><input type="checkbox" name="products" value="turf" class="cb-input"><span class="cb-box"></span>Custom Gym Turf</label>
+                <label class="cb-label"><input type="checkbox" name="products" value="flooring" class="cb-input"><span class="cb-box"></span>Rubber Flooring</label>
+                <label class="cb-label"><input type="checkbox" name="products" value="equipment" class="cb-input"><span class="cb-box"></span>Functional Equipment</label>
+                <label class="cb-label"><input type="checkbox" name="products" value="large_equipment" class="cb-input"><span class="cb-box"></span>Larger Equipment</label>
+                <label class="cb-label"><input type="checkbox" name="products" value="golf_mats" class="cb-input"><span class="cb-box"></span>Golf / Sports Mats</label>
+                <label class="cb-label"><input type="checkbox" name="products" value="not_sure" class="cb-input"><span class="cb-box"></span>Not Sure Yet</label>
+              </div>
+              <div class="field-error" data-product-error>Please select at least one product.</div>
             </div>
-          </div>
 
-          <!-- Facility Size + Quantity -->
-          <div class="form-row">
-            <div class="form-group">
-              <label>Facility Size (optional)</label>
-              <input type="text" name="facility_size" placeholder="e.g. 500 sqm / 5,000 sqft" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Your Name *</label>
+                <input id="name" type="text" name="name" placeholder="Full name" required />
+              </div>
+              <div class="form-group">
+                <label for="company">Company Name</label>
+                <input id="company" type="text" name="company" placeholder="Your gym / company" />
+              </div>
             </div>
-            <div class="form-group">
-              <label>Estimated Quantity (optional)</label>
-              <input type="text" name="quantity" placeholder="e.g. 1 pcs, 200 sqm" />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input id="email" type="email" name="email" placeholder="your@email.com" />
+              </div>
+              <div class="form-group">
+                <label for="whatsapp">WhatsApp / Phone</label>
+                <input id="whatsapp" type="text" name="whatsapp" placeholder="+1 555 000 0000" />
+              </div>
             </div>
-          </div>
+            <p class="form-help">Please provide at least an email address or WhatsApp number.</p>
+            <div class="field-error" data-contact-error>Please enter an email address or WhatsApp number.</div>
 
-          <!-- Target Date + Budget -->
-          <div class="form-row">
-            <div class="form-group">
-              <label>Target Delivery / Opening Date (optional)</label>
-              <input type="text" name="target_date" placeholder="e.g. October 2025" />
+            <div class="form-actions">
+              <button type="button" class="btn btn-primary" data-form-next>Continue →</button>
             </div>
-            <div class="form-group">
-              <label>Budget Range (optional)</label>
-              <select name="budget">
-                <option value="" disabled selected>Select range (USD)</option>
-                <option value="under5k">Under $5,000</option>
-                <option value="5k_20k">$5,000 – $20,000</option>
-                <option value="20k_50k">$20,000 – $50,000</option>
-                <option value="50k_plus">$50,000+</option>
-                <option value="prefer_not">Prefer not to say</option>
-              </select>
-            </div>
-          </div>
+          </section>
 
-          <!-- Customization + Shipping -->
-          <div class="form-row">
-            <div class="form-group">
-              <label>Customization Needed (optional)</label>
-              <select name="customization">
-                <option value="" disabled selected>Select option</option>
-                <option value="logo">Logo Branding</option>
-                <option value="color">Custom Color / Pattern</option>
-                <option value="packaging">Custom Packaging</option>
-                <option value="full_oem">Full OEM / ODM</option>
-                <option value="none">No Customization</option>
-              </select>
+          <section class="form-step" data-form-step="2" hidden>
+            <div class="form-step__head">
+              <h2>Help Us Prepare a Better Quote</h2>
+              <p>Optional details reduce back-and-forth. You can submit now even if some answers are unknown.</p>
             </div>
-            <div class="form-group">
-              <label>Shipping Preference (optional)</label>
-              <select name="shipping">
-                <option value="" disabled selected>Select shipping type</option>
-                <option value="express">Express (DHL / FedEx)</option>
-                <option value="air">Air Freight</option>
-                <option value="sea">Sea Freight</option>
-                <option value="ddp">DDP (Door-to-Door)</option>
-                <option value="not_sure">Not Sure</option>
-              </select>
-            </div>
-          </div>
 
-          <!-- Message -->
-          <div class="form-group">
-            <label>Additional Notes (optional)</label>
-            <textarea name="message" placeholder="Describe your training zone, specific products, reference images, floor plan details, or any other requirements..."></textarea>
-          </div>
-
-          <hr style="border:none;border-top:1px solid var(--gray-80);margin:24px 0" />
-          <div style="font-family:var(--font-head);font-size:0.75rem;letter-spacing:0.12em;color:var(--gray-50);margin-bottom:20px;text-transform:uppercase">Your Contact Details</div>
-
-          <!-- Contact -->
-          <div class="form-row">
-            <div class="form-group">
-              <label>Your Name *</label>
-              <input type="text" name="name" placeholder="Full name" required />
+            <div class="form-row">
+              <div class="form-group">
+                <label for="project_type">Project Type</label>
+                <select id="project_type" name="project_type">
+                  <option value="">Select project type</option>
+                  <option value="new_facility">New Facility Build</option>
+                  <option value="upgrade">Upgrade / Renovation</option>
+                  <option value="trial_order">Trial / Sample Order</option>
+                  <option value="resale_private_label">Resale / Private Label</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="facility_size">Facility Size</label>
+                <input id="facility_size" type="text" name="facility_size" placeholder="e.g. 500 sqm / 5,000 sqft" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="quantity">Estimated Quantity</label>
+                <input id="quantity" type="text" name="quantity" placeholder="e.g. 1 unit, 200 sqm" />
+              </div>
+              <div class="form-group">
+                <label for="target_date">Target Delivery / Opening Date</label>
+                <input id="target_date" type="text" name="target_date" placeholder="e.g. October 2026" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="budget">Budget Range</label>
+                <select id="budget" name="budget">
+                  <option value="">Select range (USD)</option>
+                  <option value="under5k">Under $5,000</option>
+                  <option value="5k_20k">$5,000 – $20,000</option>
+                  <option value="20k_50k">$20,000 – $50,000</option>
+                  <option value="50k_plus">$50,000+</option>
+                  <option value="prefer_not">Prefer not to say</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="customization">Customization Needed</label>
+                <select id="customization" name="customization">
+                  <option value="">Select option</option>
+                  <option value="logo">Logo Branding</option>
+                  <option value="color_pattern">Custom Color / Pattern</option>
+                  <option value="packaging">Custom Packaging</option>
+                  <option value="full_oem">Full OEM / ODM</option>
+                  <option value="none">No Customization</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label for="shipping">Shipping Preference</label>
+                <select id="shipping" name="shipping">
+                  <option value="">Select shipping type</option>
+                  <option value="express">Express (DHL / FedEx)</option>
+                  <option value="air">Air Freight</option>
+                  <option value="sea">Sea Freight</option>
+                  <option value="ddp">DDP (Door-to-Door)</option>
+                  <option value="not_sure">Not Sure</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="file_link">Floor Plan / Logo Sharing Link</label>
+                <input id="file_link" type="url" name="file_link" placeholder="Google Drive, Dropbox or other public link" />
+              </div>
             </div>
             <div class="form-group">
-              <label>Company Name (optional)</label>
-              <input type="text" name="company" placeholder="Your gym / company" />
+              <label for="message">Additional Notes</label>
+              <textarea id="message" name="message" placeholder="Describe your training zone, product references, floor plan details or any other requirements..."></textarea>
             </div>
-          </div>
-          <div class="form-row">
-            <div class="form-group">
-              <label>Email Address *</label>
-              <input type="email" name="email" placeholder="your@email.com" required />
-            </div>
-            <div class="form-group">
-              <label>WhatsApp / Phone (optional)</label>
-              <input type="text" name="whatsapp" placeholder="+1 555 000 0000" />
-            </div>
-          </div>
+            <p style="font-size:.75rem;color:var(--gray-50);margin-bottom:24px">By submitting, you agree that UMAX may contact you about this inquiry. We do not sell your contact information.</p>
 
-          <p style="font-size:0.75rem;color:var(--gray-50);margin-bottom:24px">
-            By submitting this form, you agree that UMAX may contact you about this inquiry. We do not sell your contact information.
-          </p>
-
-          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:18px">
-            Get My Equipment Plan
-          </button>
+            <div class="form-actions">
+              <button type="button" class="btn btn-outline" data-form-back>← Back</button>
+              <button type="submit" class="btn btn-primary">Get My Project Plan & Quote</button>
+            </div>
+          </section>
         </form>
       </div>
 
-      <!-- Sidebar -->
-      <div style="position:sticky;top:88px">
-        <div style="border:1px solid var(--gray-70);padding:32px;margin-bottom:24px">
-          <div class="label" style="margin-bottom:20px">What Happens Next</div>
-          <div style="display:flex;flex-direction:column;gap:20px">
-            <div style="display:flex;gap:14px">
-              <div style="font-family:var(--font-head);font-size:1.5rem;font-weight:900;color:var(--gray-70);min-width:32px">1</div>
-              <div>
-                <div style="font-family:var(--font-head);font-size:0.85rem;font-weight:700;margin-bottom:4px">We Review Your Project</div>
-                <p style="font-size:0.8rem">Our team reads your requirements carefully before preparing a useful response.</p>
-              </div>
-            </div>
-            <div style="display:flex;gap:14px">
-              <div style="font-family:var(--font-head);font-size:1.5rem;font-weight:900;color:var(--gray-70);min-width:32px">2</div>
-              <div>
-                <div style="font-family:var(--font-head);font-size:0.85rem;font-weight:700;margin-bottom:4px">Respond Within 24 Hours</div>
-                <p style="font-size:0.8rem">You'll receive a tailored product recommendation, pricing and shipping estimate.</p>
-              </div>
-            </div>
-            <div style="display:flex;gap:14px">
-              <div style="font-family:var(--font-head);font-size:1.5rem;font-weight:900;color:var(--gray-70);min-width:32px">3</div>
-              <div>
-                <div style="font-family:var(--font-head);font-size:0.85rem;font-weight:700;margin-bottom:4px">Review & Refine</div>
-                <p style="font-size:0.8rem">We adjust the product mix, quantities and specs until it fits your project perfectly.</p>
-              </div>
-            </div>
-          </div>
+      <aside class="quote-sidebar">
+        <div class="side-card">
+          <div class="label">What Happens Next</div>
+          <div class="side-step"><div class="side-step__num">1</div><div><h3>Fast First Response</h3><p>During working hours, our first reply usually arrives within 5 minutes.</p></div></div>
+          <div class="side-step"><div class="side-step__num">2</div><div><h3>Initial Mockup in 1 Hour</h3><p>For applicable custom projects, we prepare an initial visual direction in about one hour after receiving usable details.</p></div></div>
+          <div class="side-step"><div class="side-step__num">3</div><div><h3>Review Before Shipment</h3><p>Every order receives 100% pre-shipment inspection, followed by a customer review video.</p></div></div>
         </div>
-
-        <div style="border:1px solid var(--gray-70);padding:32px">
-          <div class="label" style="margin-bottom:20px">Prefer Direct Contact?</div>
-          <div style="display:flex;flex-direction:column;gap:14px">
-            <a href="https://wa.me/8618358338643" target="_blank" class="btn btn-outline" style="justify-content:center">
-              💬 WhatsApp Us
-            </a>
-            <a href="mailto:zoey@umaxsporting.com" class="btn btn-ghost" style="justify-content:center">
-              ✉️ zoey@umaxsporting.com
-            </a>
+        <div class="side-card">
+          <div class="label" style="margin-bottom:18px">Prefer Direct Contact?</div>
+          <div style="display:flex;flex-direction:column;gap:12px">
+            <a href="https://wa.me/8618358338643" target="_blank" rel="noopener" class="btn btn-outline" style="justify-content:center">WhatsApp Us</a>
+            <a href="mailto:zoey@umaxsporting.com" class="btn btn-ghost" style="justify-content:center">zoey@umaxsporting.com</a>
           </div>
-          <p style="font-size:0.75rem;color:var(--gray-50);margin-top:16px;text-align:center">
-            China time (GMT+8)<br>Mon–Sat 9:00 – 18:00
-          </p>
+          <p style="font-size:.75rem;color:var(--gray-50);margin-top:16px;text-align:center">China time (GMT+8)<br>Monday–Saturday, 9:00–18:00</p>
         </div>
-      </div>
-
+      </aside>
     </div>
   </div>
-</section>
+</main>
 
 <footer class="footer">
   <div class="container">
     <div class="footer-bottom" style="border-top:none;padding-top:0">
-      <p>© 2025 Hangzhou Umax Sports Co., Ltd. | <a href="/" style="color:var(--gray-30)">umaxsports.com</a></p>
+      <p>© 2026 Hangzhou Umax Sports Co., Ltd. | <a href="/" style="color:var(--gray-30)">www.umaxsporting.com</a></p>
       <p>zoey@umaxsporting.com · WhatsApp +86 183 5833 8643</p>
     </div>
   </div>
 </footer>
-
-<a href="https://wa.me/8618358338643" class="wa-float" target="_blank">
-  <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.13 1.535 5.864L.057 23.857a.5.5 0 0 0 .608.63l6.226-1.633A11.955 11.955 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.011-1.376l-.36-.213-3.72.975.995-3.632-.234-.374A9.818 9.818 0 0 1 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/></svg>
-</a>
 
 <script src="assets/js/main.js"></script>
 </body>

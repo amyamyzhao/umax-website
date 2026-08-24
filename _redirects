@@ -1,0 +1,23 @@
+# Preserve previously linked placeholder URLs and send them to the closest live content.
+/custom-branding.html /#custom-branding 301
+/custom-branding /#custom-branding 301
+/factory-quality.html /#factory-quality 301
+/factory-quality /#factory-quality 301
+/ready-to-ship.html /products/ 301
+/ready-to-ship /products/ 301
+/about.html /#factory-quality 301
+/about /#factory-quality 301
+
+# Consolidated solution sections.
+/solutions/commercial-gyms.html /solutions/#commercial-gyms 301
+/solutions/commercial-gyms /solutions/#commercial-gyms 301
+/solutions/fitness-studios.html /solutions/#fitness-studios 301
+/solutions/fitness-studios /solutions/#fitness-studios 301
+/solutions/distributors.html /solutions/#distributors 301
+/solutions/distributors /solutions/#distributors 301
+/solutions/sports-facilities.html /solutions/#sports-facilities 301
+/solutions/sports-facilities /solutions/#sports-facilities 301
+
+# Product category that is currently handled as a project inquiry.
+/products/golf-baseball-mats.html /get-a-quote?product=golf-sports-mats 301
+/products/golf-baseball-mats /get-a-quote?product=golf-sports-mats 301

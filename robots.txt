@@ -1,0 +1,27 @@
+# UMAX Sports crawling policy
+# Production host: https://www.umaxsporting.com/
+
+# Allow conventional search engines and other crawlers.
+User-agent: *
+Allow: /
+
+# OpenAI search discovery.
+User-agent: OAI-SearchBot
+Allow: /
+
+# Pages fetched in response to a ChatGPT user request.
+User-agent: ChatGPT-User
+Allow: /
+
+# OpenAI model-training crawler.
+User-agent: GPTBot
+Allow: /
+
+# Other major AI crawlers.
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+Sitemap: https://www.umaxsporting.com/sitemap.xml
