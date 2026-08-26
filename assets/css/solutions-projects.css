@@ -1,0 +1,46 @@
+/* Customer cases live under Solutions; green remains a small-area accent. */
+.customer-projects { scroll-margin-top: 116px; }
+.customer-projects-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.customer-project-card .project-card-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+}
+.customer-project-card .card-media picture { display: block; width: 100%; height: 100%; }
+.customer-project-card .card-media img { object-position: center 62%; }
+.customer-project-card .card-body { gap: 14px; }
+.customer-project-card .card-kicker,
+.customer-project-card h3,
+.customer-project-card p { margin: 0; }
+.customer-project-card .text-link { padding-top: 12px; }
+.customer-project-card:focus-within { outline: 2px solid var(--green); outline-offset: 4px; }
+.customer-project-card a:focus-visible { outline-offset: -3px; }
+
+.cta-band { background: #171717; border-top: 3px solid var(--green); }
+.cta-band::after { display: none; }
+.cta-band .btn { background: var(--green); border-color: var(--green); }
+.cta-band .btn:hover { background: var(--green-dark); }
+.floating-contact {
+  width: 56px;
+  height: 56px;
+  min-height: 0;
+  padding: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  animation: customer-projects-wa-pulse 2.2s ease-in-out 1.1s infinite;
+}
+@keyframes customer-projects-wa-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(45,178,40,.7); }
+  50% { box-shadow: 0 0 0 14px rgba(45,178,40,0); }
+  100% { box-shadow: 0 0 0 0 rgba(45,178,40,0); }
+}
+@media (max-width: 720px) {
+  .customer-projects-grid { grid-template-columns: 1fr; }
+  .customer-projects { scroll-margin-top: 92px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .floating-contact { animation: none; }
+}

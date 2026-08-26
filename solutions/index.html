@@ -13,6 +13,7 @@
   <link rel="preload" href="/assets/fonts/barlow-condensed-900-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/inter-400-500-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="../assets/css/umax-hub.css">
+  <link rel="stylesheet" href="../assets/css/solutions-projects.css?v=20260826-projects1">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -21,7 +22,18 @@
         "@type": "CollectionPage",
         "name": "Commercial Fitness Solutions",
         "url": "https://www.umaxsporting.com/solutions/",
-        "description": "Project solutions for commercial gyms, boutique studios, distributors and sports facilities."
+        "description": "Project solutions for commercial gyms, boutique studios, distributors and sports facilities.",
+        "hasPart": {"@id": "https://www.umaxsporting.com/solutions/#customer-projects"}
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://www.umaxsporting.com/solutions/#customer-projects",
+        "name": "Customer Projects",
+        "numberOfItems": 2,
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "UK 14m × 3m Black Custom Gym Turf", "url": "https://www.umaxsporting.com/projects/uk-custom-gym-turf-14x3m"},
+          {"@type": "ListItem", "position": 2, "name": "Netherlands 30m × 2m Green Numbered Gym Turf", "url": "https://www.umaxsporting.com/projects/netherlands-custom-gym-turf-30x2m"}
+        ]
       },
       {
         "@type": "BreadcrumbList",
@@ -85,6 +97,7 @@
         <a href="#fitness-studios">Boutique Studios</a>
         <a href="#distributors">Distributors</a>
         <a href="#sports-facilities">Sports Facilities</a>
+        <a href="#customer-projects">Customer Projects</a>
       </div>
     </nav>
 
@@ -188,6 +201,52 @@
       </div>
     </section>
 
+    <section class="section section--alt customer-projects" id="customer-projects" aria-labelledby="customer-projects-title">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <div class="eyebrow">Real Customer Projects</div>
+            <h2 id="customer-projects-title">Customer Projects</h2>
+          </div>
+          <p>Explore two custom gym turf projects from approved design and factory checks to the installed result. Each case documents a different space, track layout and delivery requirement.</p>
+        </div>
+        <div class="card-grid customer-projects-grid">
+          <article class="card customer-project-card">
+            <a class="project-card-link" href="/projects/uk-custom-gym-turf-14x3m">
+              <div class="card-media">
+                <picture>
+                  <source type="image/webp" srcset="../assets/img/projects/uk-custom-gym-turf-14x3m/uk-installed-track-hero-720.webp 720w, ../assets/img/projects/uk-custom-gym-turf-14x3m/uk-installed-track-hero.webp 1280w" sizes="(max-width:720px) calc(100vw - 36px), (max-width:1280px) calc((100vw - 72px) / 2), 592px">
+                  <img src="../assets/img/projects/uk-custom-gym-turf-14x3m/uk-installed-track-hero-720.webp" width="720" height="960" alt="Black 14m by 3m gym turf with yellow woven customer branding installed in a UK gym" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-kicker">United Kingdom · 14m × 3m</div>
+                <h3>Black Turf with Woven Branding</h3>
+                <p>A wide branded gym track with machine-woven logos, distance markings, factory measurement and customer-installed views.</p>
+                <span class="text-link">Read the UK Case Study <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </article>
+          <article class="card customer-project-card">
+            <a class="project-card-link" href="/projects/netherlands-custom-gym-turf-30x2m">
+              <div class="card-media">
+                <picture>
+                  <source type="image/webp" srcset="../assets/img/projects/netherlands-custom-gym-turf-30x2m/nl-installed-track-hero-720.webp 720w, ../assets/img/projects/netherlands-custom-gym-turf-30x2m/nl-installed-track-hero.webp 1200w" sizes="(max-width:720px) calc(100vw - 36px), (max-width:1280px) calc((100vw - 72px) / 2), 592px">
+                  <img src="../assets/img/projects/netherlands-custom-gym-turf-30x2m/nl-installed-track-hero-720.webp" width="720" height="960" alt="Green 30m by 2m numbered training turf installed by the Netherlands customer" loading="lazy" decoding="async">
+                </picture>
+              </div>
+              <div class="card-body">
+                <div class="card-kicker">Netherlands · 30m × 2m</div>
+                <h3>Green Numbered Sled Track</h3>
+                <p>A long custom gym turf roll with two-direction numbers, woven branding, wooden-crate export packing and customer-managed installation.</p>
+                <span class="text-link">Read the Netherlands Case Study <span aria-hidden="true">→</span></span>
+              </div>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="section section--deep">
       <div class="container">
         <div class="section-head">
@@ -255,6 +314,7 @@
             <li><a href="#fitness-studios">Boutique Studios</a></li>
             <li><a href="#distributors">Distributors</a></li>
             <li><a href="#sports-facilities">Sports Facilities</a></li>
+            <li><a href="#customer-projects">Customer Projects</a></li>
           </ul>
         </div>
         <div>
@@ -273,8 +333,9 @@
       </div>
     </div>
   </footer>
-
-  <a class="floating-contact" href="https://wa.me/8618358338643" target="_blank" rel="noopener">WhatsApp</a>
+  <a class="floating-contact" href="https://wa.me/8618358338643" target="_blank" rel="noopener" aria-label="Contact UMAX Sports on WhatsApp">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.132.558 4.13 1.535 5.864L.057 23.857a.5.5 0 0 0 .608.63l6.226-1.633A11.955 11.955 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 0 1-5.011-1.376l-.36-.213-3.72.975.995-3.632-.234-.374A9.818 9.818 0 0 1 12 2.182c5.427 0 9.818 4.391 9.818 9.818 0 5.427-4.391 9.818-9.818 9.818z"/></svg>
+  </a>
   <script src="../assets/js/umax-hub.js"></script>
   <script src="../assets/js/main.js"></script>
 </body>
