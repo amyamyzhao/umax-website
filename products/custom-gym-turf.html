@@ -30,18 +30,39 @@
 </nav>
 
 <!-- Hero -->
-<section style="background:var(--gray-90);padding:80px 0 64px;border-bottom:1px solid var(--gray-80)">
+<style>
+  .product-hero { background:var(--gray-90);padding:56px 0 64px;border-bottom:1px solid var(--gray-80); }
+  .product-hero__grid { display:grid;grid-template-columns:minmax(0,1.02fr) minmax(380px,.98fr);gap:56px;align-items:center; }
+  .product-hero__copy p { max-width:620px;color:var(--gray-30);margin-bottom:36px; }
+  .product-hero__media { position:relative;min-height:520px;border:1px solid var(--gray-70);overflow:hidden;background:var(--gray-80); }
+  .product-hero__media img { position:absolute;inset:0;width:100%;height:100%;object-fit:cover; }
+  .product-hero__caption { position:absolute;left:20px;right:20px;bottom:20px;padding:14px 16px;background:rgba(15,15,15,.84);border-left:3px solid var(--green);color:#fff;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase; }
+  @media (max-width:900px) {
+    .product-hero { padding:40px 0 48px; }
+    .product-hero__grid { grid-template-columns:1fr;gap:32px; }
+    .product-hero__media { min-height:0;aspect-ratio:4/3; }
+  }
+</style>
+<section class="product-hero">
   <div class="container">
-    <div style="font-size:0.8rem;color:var(--gray-50);margin-bottom:12px"><a href="/">Home</a> / <a href="/products/">Products</a> / Custom Gym Turf</div>
-    <div class="label" style="margin-bottom:20px">Flagship Category</div>
-    <h1 style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:20px">Custom Turf Built for<br>Training, Branding & Heavy Use</h1>
-    <p style="max-width:600px;color:var(--gray-30);margin-bottom:36px">
-      Create a functional lane or full training zone with custom measurements, graphics and backing options.
-      UMAX prepares a free visual mockup after your dimensions and design direction are confirmed.
-    </p>
-    <div style="display:flex;gap:16px;flex-wrap:wrap">
-      <a href="/get-a-quote?product=custom-gym-turf&intent=mockup" class="btn btn-primary">Get a Turf Mockup</a>
-      <a href="https://wa.me/8618358338643" target="_blank" class="btn btn-outline">WhatsApp a Turf Specialist</a>
+    <div style="font-size:0.8rem;color:var(--gray-50);margin-bottom:24px"><a href="/">Home</a> / <a href="/products/">Products</a> / Custom Gym Turf</div>
+    <div class="product-hero__grid">
+      <div class="product-hero__copy">
+        <div class="label" style="margin-bottom:20px">Flagship Category</div>
+        <h1 style="font-size:clamp(2rem,5vw,3.5rem);margin-bottom:20px">Custom Turf Built for<br>Training, Branding &amp; Heavy Use</h1>
+        <p>Create a functional lane or full training zone with custom measurements, graphics and backing options. UMAX prepares a free visual mockup after your dimensions and design direction are confirmed.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap">
+          <a href="/get-a-quote?product=custom-gym-turf&amp;intent=mockup" class="btn btn-primary">Get a Turf Mockup</a>
+          <a href="https://wa.me/8618358338643" target="_blank" class="btn btn-outline">WhatsApp a Turf Specialist</a>
+        </div>
+      </div>
+      <figure class="product-hero__media">
+        <picture>
+          <source media="(max-width:900px)" srcset="/assets/img/blog/sled-track/sled-track-hero-800.webp">
+          <img src="/assets/img/blog/sled-track/sled-track-hero-1440.webp" width="1440" height="960" alt="Commercial gym training area with a custom turf sled track" fetchpriority="high">
+        </picture>
+        <figcaption class="product-hero__caption">Custom turf lane for sled training &amp; functional zones</figcaption>
+      </figure>
     </div>
   </div>
 </section>
@@ -148,6 +169,9 @@
         <p style="font-size:0.875rem">Multi-lane layouts for fitness events, challenges, or commercial training competitions.</p>
       </div>
     </div>
+    <p style="margin:32px 0 0;max-width:760px;color:var(--gray-30)" data-aos>
+      Planning a commercial sled lane? Use our <a href="/blog/commercial-gym-sled-track-guide" style="color:var(--white);font-weight:700;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px">commercial gym sled track planning guide</a> to compare usable length ranges, lane width, sled clearance, seams, edges and turf-to-rubber transitions before confirming the turf dimensions.
+    </p>
   </div>
 </section>
 

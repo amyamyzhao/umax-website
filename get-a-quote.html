@@ -87,19 +87,8 @@
           <div class="form-progress__item" data-progress-step="2">02 · Project Details</div>
         </div>
 
-        <form id="rfq-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
-          <input type="hidden" name="access_key" value="6f75b4b4-fd1e-48f3-85a3-635b2703c5d3">
-          <input type="hidden" name="subject" value="New RFQ from UMAX Sports Website">
-          <input type="hidden" name="from_name" value="UMAX Sports Website">
-          <input type="hidden" name="redirect" value="false">
+        <form id="rfq-form" method="dialog" novalidate>
           <input type="checkbox" name="botcheck" style="display:none">
-          <input type="hidden" name="source_page" value="">
-          <input type="hidden" name="inquiry_context" value="">
-          <input type="hidden" name="utm_source" value="">
-          <input type="hidden" name="utm_medium" value="">
-          <input type="hidden" name="utm_campaign" value="">
-          <input type="hidden" name="utm_term" value="">
-          <input type="hidden" name="utm_content" value="">
 
           <section class="form-step" data-form-step="1">
             <div class="form-step__head">
@@ -248,7 +237,7 @@
 
             <div class="form-actions">
               <button type="button" class="btn btn-outline" data-form-back>← Back</button>
-              <button type="submit" class="btn btn-primary">Get My Project Plan & Quote</button>
+              <button type="submit" class="btn btn-primary" data-js-submit disabled>Get My Project Plan & Quote</button>
             </div>
           </section>
         </form>
