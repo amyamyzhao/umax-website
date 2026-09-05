@@ -146,7 +146,7 @@
     analyticsTitle: "Page Not Found | UMAX Sports",
     whatsappLabel: "the UMAX website",
   });
-  const ROUTE_DEFINITIONS = Object.freeze([
+  const ROUTE_DEFINITIONS = Object.freeze([{id: "project_thailand_turf", aliases: ["/projects/thailand-custom-gym-turf-sled-training", "/projects/thailand-custom-gym-turf-sled-training.html"], canonicalPath: "/projects/thailand-custom-gym-turf-sled-training", analyticsTitle: "Custom Gym Turf in Use: Thailand Sled Training Project | UMAX", whatsappLabel: "the Thailand custom gym turf project"},
     {
       id: "home",
       aliases: ["/", "/index.html"],
