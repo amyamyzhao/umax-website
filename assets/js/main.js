@@ -304,6 +304,16 @@
       whatsappLabel: "the Rubber Gym Flooring Rolls vs Tiles guide",
     },
     {
+      id: "blog_rubber_flooring_installation",
+      aliases: [
+        "/blog/commercial-rubber-gym-flooring-installation-guide",
+        "/blog/commercial-rubber-gym-flooring-installation-guide.html",
+      ],
+      canonicalPath: "/blog/commercial-rubber-gym-flooring-installation-guide",
+      analyticsTitle: "Commercial Rubber Gym Flooring Installation Guide | UMAX",
+      whatsappLabel: "the Commercial Rubber Gym Flooring Installation guide",
+    },
+    {
       ...NOT_FOUND_ROUTE,
       aliases: ["/404", "/404.html"],
     },
